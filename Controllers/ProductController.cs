@@ -41,7 +41,7 @@ namespace ProductsAPI.Controllers
         public async Task<ActionResult> RemoveProduct(int id)
         {
             var product = db.Products.FirstOrDefaultAsync();
-            db.Remove(product);
+            db.Products.Remove(await product);
             await db.SaveChangesAsync();
             return Ok();
         }
